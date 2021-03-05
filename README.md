@@ -26,7 +26,17 @@ To get a local copy up and running follow these simple steps.
 - run `rails db: migrate` to migrate the database 
 - run `rails server`
 - Go to `http://localhost:3000` on your browser to view the homepage of the application 
-- Finnaly run `rails console` to inspect the structure of the database and the data you stored.
+- Finally run `rails console` to inspect the structure of the database and the data you stored.
+
+## creating a new user
+
+- Go to `http://localhost:3000/users/new` on your web browser.
+
+## Editing an existing user
+
+- Go to `http://localhost:3000/users/{id}/edit` on your web browser. `{id}` is the current id of the 
+user. When starting a fresh instance of the app, the created users will automatically be assigned an 
+incremental `id` starting from 1.
 
 ## Prerequisites
 
@@ -77,7 +87,7 @@ Give a ⭐️ if you like this project!
 - [Microverse](https://www.microverse.org)
 - [Rails-Doc](https://guides.rubyonrails.org/)
 - [Odin-Project](https://www.theodinproject.com/courses/ruby-on-rails/lessons/building-with-active-record-ruby-on-rails)
-- Our standup teams
+- Our stand up teams
 
 ## 📝 License
 

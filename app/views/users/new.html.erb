@@ -1,5 +1,25 @@
 <h1>Create a new user</h1>
 
+<!--<form action="users_path" method="post" accept-charset="UTF-8">
+  <label for="user[username]">Username</label>
+  <input name="user[username]" type="text" />
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%#= form_authenticity_token %>"
+    />
+  <input type="submit" value="Submit" />
+</form>-->
+
+<%= #form_tag(users_path) do %> <%= label_tag 'username' %>
+  <%= #text_field_tag 'username' %>
+  <%= #label_tag 'email' %>
+  <%= #email_field_tag 'email' %>
+  <%= #label_tag 'password' %>
+  <%= #password_field_tag 'password' %>
+  <%= #submit_tag %>
+<% #end %>
+
 <%= form_with model: @user do |f| %>
 
   <%= f.label :email %>
