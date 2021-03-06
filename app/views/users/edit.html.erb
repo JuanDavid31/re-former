@@ -1,0 +1,19 @@
+<h1>Edit user</h1>
+
+<%= form_with model: @user, method: :put do |f| %>
+  <ul>
+  <% @user.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <%= f.label :email %>
+  <%= f.email_field :email, placeholder: "Enter your email address", required: 'required', class:"placeholder" %>
+  <br>
+  <%= f.label :username %>
+  <%= f.text_field :username, placeholder: "Enter your username", required: 'required', class:"placeholder" %>
+  <br>
+  <%= f.label :password %>
+  <%= f.password_field :password, placeholder: "Enter your password", required: 'required', class:"placeholder" %>
+  <br>
+  <%= f.submit 'Save' %>
+<% end %>
