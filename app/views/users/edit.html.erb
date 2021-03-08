@@ -2,10 +2,11 @@
 
 <%= form_with model: @user, method: :put do |f| %>
   <ul>
-  <% @user.errors.full_messages.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
+    <% @user.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
   </ul>
+  
   <%= f.label :email %>
   <%= f.email_field :email, placeholder: "Enter your email address", required: 'required', class:"placeholder" %>
   <br>
