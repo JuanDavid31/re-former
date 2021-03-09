@@ -1,12 +1,17 @@
 class UsersController < ApplicationController
   def new
+    #reset_cookies
+    reset_sessions
     @user = User.new
   end
 
   def create
     @user = User.new(user_params)
+    token = random_string = ('0'..'z').to_a.shuffle.first(8).join
+    @user.remember_token = token
 
     if @user.save
+      cookies.permanent[:remember_token] = token
       redirect_to new_user_path
     else
       render :new
