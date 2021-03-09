@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:edit, :update]
+
   def new
-    #reset_cookies
     reset_sessions
     @user = User.new
   end
@@ -36,5 +37,19 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :email, :password)
+  end
+
+  private
+
+  def require_login
+    user = User.find(sessions[:user_id])
+
+    if user.remember_token.eql? cookies[:remember_token]
+      true
+    else
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to new_user_path 
+      false
+    end
   end
 end
